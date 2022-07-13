@@ -9,13 +9,19 @@
 /* Begin PBXBuildFile section */
 		FCB25F19287EA9130086F8B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB25F18287EA9130086F8B2 /* AppDelegate.swift */; };
 		FCB25F1B287EA9130086F8B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB25F1A287EA9130086F8B2 /* SceneDelegate.swift */; };
-		FCB25F1D287EA9130086F8B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB25F1C287EA9130086F8B2 /* ViewController.swift */; };
-		FCB25F20287EA9130086F8B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB25F1E287EA9130086F8B2 /* Main.storyboard */; };
 		FCB25F22287EA9150086F8B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB25F21287EA9150086F8B2 /* Assets.xcassets */; };
 		FCB25F25287EA9150086F8B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB25F23287EA9150086F8B2 /* LaunchScreen.storyboard */; };
 		FCB25F30287EA9150086F8B2 /* SampleSignTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB25F2F287EA9150086F8B2 /* SampleSignTests.swift */; };
 		FCB25F3A287EA9150086F8B2 /* SampleSignUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB25F39287EA9150086F8B2 /* SampleSignUITests.swift */; };
 		FCB25F3C287EA9150086F8B2 /* SampleSignUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB25F3B287EA9150086F8B2 /* SampleSignUITestsLaunchTests.swift */; };
+		FCB25F50287EAB7C0086F8B2 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB25F4F287EAB7C0086F8B2 /* Firebase.swift */; };
+		FCB25F52287EABA40086F8B2 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB25F51287EABA40086F8B2 /* SignUpViewModel.swift */; };
+		FCB25F54287EABB50086F8B2 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB25F53287EABB50086F8B2 /* SignInViewModel.swift */; };
+		FCB25F56287EABD70086F8B2 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB25F55287EABD70086F8B2 /* SignUp.storyboard */; };
+		FCB25F58287EABF10086F8B2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB25F57287EABF10086F8B2 /* SignUpViewController.swift */; };
+		FCB25F5A287EAC010086F8B2 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB25F59287EAC010086F8B2 /* SignIn.storyboard */; };
+		FCB25F5C287EAC1B0086F8B2 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB25F5B287EAC1B0086F8B2 /* SignInViewController.swift */; };
+		FCB25F5E287EAD250086F8B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB25F5D287EAD250086F8B2 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +45,6 @@
 		FCB25F15287EA9130086F8B2 /* SampleSign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleSign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB25F18287EA9130086F8B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCB25F1A287EA9130086F8B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FCB25F1C287EA9130086F8B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FCB25F1F287EA9130086F8B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCB25F21287EA9150086F8B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCB25F24287EA9150086F8B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCB25F26287EA9150086F8B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +53,14 @@
 		FCB25F35287EA9150086F8B2 /* SampleSignUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleSignUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB25F39287EA9150086F8B2 /* SampleSignUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSignUITests.swift; sourceTree = "<group>"; };
 		FCB25F3B287EA9150086F8B2 /* SampleSignUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSignUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FCB25F4F287EAB7C0086F8B2 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		FCB25F51287EABA40086F8B2 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		FCB25F53287EABB50086F8B2 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		FCB25F55287EABD70086F8B2 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		FCB25F57287EABF10086F8B2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		FCB25F59287EAC010086F8B2 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		FCB25F5B287EAC1B0086F8B2 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		FCB25F5D287EAD250086F8B2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +113,10 @@
 			children = (
 				FCB25F18287EA9130086F8B2 /* AppDelegate.swift */,
 				FCB25F1A287EA9130086F8B2 /* SceneDelegate.swift */,
-				FCB25F1C287EA9130086F8B2 /* ViewController.swift */,
-				FCB25F1E287EA9130086F8B2 /* Main.storyboard */,
+				FCB25F4B287EAAF90086F8B2 /* Model */,
+				FCB25F49287EAAE70086F8B2 /* View */,
+				FCB25F48287EAAD50086F8B2 /* ViewModel */,
+				FCB25F4C287EAB090086F8B2 /* Utility */,
 				FCB25F21287EA9150086F8B2 /* Assets.xcassets */,
 				FCB25F23287EA9150086F8B2 /* LaunchScreen.storyboard */,
 				FCB25F26287EA9150086F8B2 /* Info.plist */,
@@ -125,6 +139,42 @@
 				FCB25F3B287EA9150086F8B2 /* SampleSignUITestsLaunchTests.swift */,
 			);
 			path = SampleSignUITests;
+			sourceTree = "<group>";
+		};
+		FCB25F48287EAAD50086F8B2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FCB25F51287EABA40086F8B2 /* SignUpViewModel.swift */,
+				FCB25F53287EABB50086F8B2 /* SignInViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FCB25F49287EAAE70086F8B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FCB25F55287EABD70086F8B2 /* SignUp.storyboard */,
+				FCB25F57287EABF10086F8B2 /* SignUpViewController.swift */,
+				FCB25F59287EAC010086F8B2 /* SignIn.storyboard */,
+				FCB25F5B287EAC1B0086F8B2 /* SignInViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FCB25F4B287EAAF90086F8B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FCB25F5D287EAD250086F8B2 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FCB25F4C287EAB090086F8B2 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				FCB25F4F287EAB7C0086F8B2 /* Firebase.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +281,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCB25F5A287EAC010086F8B2 /* SignIn.storyboard in Resources */,
 				FCB25F25287EA9150086F8B2 /* LaunchScreen.storyboard in Resources */,
 				FCB25F22287EA9150086F8B2 /* Assets.xcassets in Resources */,
-				FCB25F20287EA9130086F8B2 /* Main.storyboard in Resources */,
+				FCB25F56287EABD70086F8B2 /* SignUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +309,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCB25F1D287EA9130086F8B2 /* ViewController.swift in Sources */,
+				FCB25F5C287EAC1B0086F8B2 /* SignInViewController.swift in Sources */,
+				FCB25F58287EABF10086F8B2 /* SignUpViewController.swift in Sources */,
+				FCB25F50287EAB7C0086F8B2 /* Firebase.swift in Sources */,
 				FCB25F19287EA9130086F8B2 /* AppDelegate.swift in Sources */,
+				FCB25F5E287EAD250086F8B2 /* User.swift in Sources */,
+				FCB25F52287EABA40086F8B2 /* SignUpViewModel.swift in Sources */,
 				FCB25F1B287EA9130086F8B2 /* SceneDelegate.swift in Sources */,
+				FCB25F54287EABB50086F8B2 /* SignInViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +353,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FCB25F1E287EA9130086F8B2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FCB25F1F287EA9130086F8B2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FCB25F23287EA9150086F8B2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -441,7 +489,6 @@
 				INFOPLIST_FILE = SampleSign/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -468,7 +515,6 @@
 				INFOPLIST_FILE = SampleSign/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
