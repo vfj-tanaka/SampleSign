@@ -33,6 +33,7 @@
 		FCB25F72287EB22A0086F8B2 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = FCB25F71287EB22A0086F8B2 /* RxRelay */; };
 		FCB25F74287EB22A0086F8B2 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FCB25F73287EB22A0086F8B2 /* RxSwift */; };
 		FCB25F77287EB26A0086F8B2 /* RxOptional in Frameworks */ = {isa = PBXBuildFile; productRef = FCB25F76287EB26A0086F8B2 /* RxOptional */; };
+		FCB25F79287FF06B0086F8B2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCB25F78287FF06B0086F8B2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		FCB25F59287EAC010086F8B2 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		FCB25F5B287EAC1B0086F8B2 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FCB25F5D287EAD250086F8B2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FCB25F78287FF06B0086F8B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				FCB25F21287EA9150086F8B2 /* Assets.xcassets */,
 				FCB25F23287EA9150086F8B2 /* LaunchScreen.storyboard */,
 				FCB25F26287EA9150086F8B2 /* Info.plist */,
+				FCB25F78287FF06B0086F8B2 /* GoogleService-Info.plist */,
 			);
 			path = SampleSign;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 			files = (
 				FCB25F5A287EAC010086F8B2 /* SignIn.storyboard in Resources */,
 				FCB25F25287EA9150086F8B2 /* LaunchScreen.storyboard in Resources */,
+				FCB25F79287FF06B0086F8B2 /* GoogleService-Info.plist in Resources */,
 				FCB25F22287EA9150086F8B2 /* Assets.xcassets in Resources */,
 				FCB25F56287EABD70086F8B2 /* SignUp.storyboard in Resources */,
 			);
