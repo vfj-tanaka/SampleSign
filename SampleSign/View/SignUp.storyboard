@@ -57,11 +57,17 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="登録"/>
+                                                <connections>
+                                                    <action selector="register:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tl0-eq-g1q"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a72-LU-Rfi">
                                                 <rect key="frame" x="0.0" y="88" width="181.5" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="アカウントをお持ちの方"/>
+                                                <connections>
+                                                    <action selector="gotoSignIn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KJH-qF-e7f"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -75,6 +81,12 @@
                             <constraint firstItem="B2Y-hp-qMx" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="a0l-5f-8HR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmTextField" destination="7Yn-aa-s8N" id="ww6-iQ-I1Z"/>
+                        <outlet property="mailTextField" destination="fWO-Oe-bW9" id="aRR-p8-tQe"/>
+                        <outlet property="passTextField" destination="VZK-re-ZFy" id="BWO-zM-7Dc"/>
+                        <outlet property="registerButton" destination="Y5U-Pn-DOb" id="BmX-2e-l7X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
