@@ -32,11 +32,14 @@ final class SignUpViewController: UIViewController {
     private func bindInputStream() {
         
         let mailTextObsavable = mailTextField.rx.text
-            .subscribe(on: MainScheduler.instance).distinctUntilChanged().filterNil().filter { $0.isNotEmpty }
+            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
+            .distinctUntilChanged().filterNil().filter { $0.isNotEmpty }
         let passTextObsavable = passTextField.rx.text
-            .subscribe(on: MainScheduler.instance).distinctUntilChanged().filterNil().filter { $0.isNotEmpty }
+            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
+            .distinctUntilChanged().filterNil().filter { $0.isNotEmpty }
         let confirmTextObsavable = confirmTextField.rx.text
-            .subscribe(on: MainScheduler.instance).distinctUntilChanged().filterNil().filter { $0.isNotEmpty }
+            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
+            .distinctUntilChanged().filterNil().filter { $0.isNotEmpty }
         
         
         mailTextObsavable.bind(to: input.mailTextObserver).disposed(by: disposeBag)
