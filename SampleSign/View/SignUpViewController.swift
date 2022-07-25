@@ -12,6 +12,7 @@ import RxOptional
 
 final class SignUpViewController: UIViewController {
     
+    @IBOutlet private weak var userNameTextField: UITextField!
     @IBOutlet private weak var mailTextField: UITextField!
     @IBOutlet private weak var passTextField: UITextField!
     @IBOutlet private weak var confirmTextField: UITextField!
@@ -31,6 +32,9 @@ final class SignUpViewController: UIViewController {
     
     private func bindInputStream() {
         
+        let userNameTextObsavable = userNameTextField.rx.text
+            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
+            .distinctUntilChanged().filterNil().filter { $0.isNotEmpty }
         let mailTextObsavable = mailTextField.rx.text
             .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
             .distinctUntilChanged().filterNil().filter { $0.isNotEmpty }
@@ -41,7 +45,7 @@ final class SignUpViewController: UIViewController {
             .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
             .distinctUntilChanged().filterNil().filter { $0.isNotEmpty }
         
-        
+        userNameTextObsavable.bind(to: input.userNameTextObserver).disposed(by: disposeBag)
         mailTextObsavable.bind(to: input.mailTextObserver).disposed(by: disposeBag)
         passTextObsavable.bind(to: input.passTextObserver).disposed(by: disposeBag)
         confirmTextObsavable.bind(to: input.confirmTextObserver).disposed(by: disposeBag)
