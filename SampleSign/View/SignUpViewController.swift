@@ -16,11 +16,10 @@ final class SignUpViewController: UIViewController {
     @IBOutlet private weak var mailTextField: UITextField!
     @IBOutlet private weak var passTextField: UITextField!
     @IBOutlet private weak var confirmTextField: UITextField!
+    @IBOutlet private weak var statusLabel: UILabel!
     @IBOutlet private weak var registerButton: UIButton!
     
-    private let viewModel = SignUpViewModel()
-    private lazy var input: signUpInput = viewModel
-    private lazy var output: signUpOutput = viewModel
+    private var viewModel: SignUpViewModel!
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -32,23 +31,21 @@ final class SignUpViewController: UIViewController {
     
     private func bindInputStream() {
         
-        let userNameTextObsavable = userNameTextField.rx.text
-            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
-            .distinctUntilChanged().filterNil().filter { $0.isNotEmpty }
-        let mailTextObsavable = mailTextField.rx.text
-            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
-            .distinctUntilChanged().filterNil().filter { $0.isNotEmpty }
-        let passTextObsavable = passTextField.rx.text
-            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
-            .distinctUntilChanged().filterNil().filter { $0.isNotEmpty }
-        let confirmTextObsavable = confirmTextField.rx.text
-            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
-            .distinctUntilChanged().filterNil().filter { $0.isNotEmpty }
+        self.viewModel = SignUpViewModel(
+            input: (
+                userNameTextField.rx.text.orEmpty.asDriver(),
+                mailTextField.rx.text.orEmpty.asDriver(),
+                passTextField.rx.text.orEmpty.asDriver(),
+                confirmTextField.rx.text.orEmpty.asDriver()
+            )
+        )
         
-        userNameTextObsavable.bind(to: input.userNameTextObserver).disposed(by: disposeBag)
-        mailTextObsavable.bind(to: input.mailTextObserver).disposed(by: disposeBag)
-        passTextObsavable.bind(to: input.passTextObserver).disposed(by: disposeBag)
-        confirmTextObsavable.bind(to: input.confirmTextObserver).disposed(by: disposeBag)
+        viewModel.validationResult.drive { validationResult in
+            
+            self.registerButton.isEnabled = validationResult.isValidated
+            
+        }.disposed(by: disposeBag)
+
     }
     
     private func bindOutputStream() {
