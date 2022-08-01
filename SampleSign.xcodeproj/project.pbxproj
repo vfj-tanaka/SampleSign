@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FC3F4CF92890C893003D0073 /* ValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3F4CF82890C893003D0073 /* ValidationModel.swift */; };
+		FC3F4CFB2891F79F003D0073 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3F4CFA2891F79F003D0073 /* Alert.swift */; };
 		FCB25F19287EA9130086F8B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB25F18287EA9130086F8B2 /* AppDelegate.swift */; };
 		FCB25F1B287EA9130086F8B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB25F1A287EA9130086F8B2 /* SceneDelegate.swift */; };
 		FCB25F22287EA9150086F8B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB25F21287EA9150086F8B2 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		FC3F4CF82890C893003D0073 /* ValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationModel.swift; sourceTree = "<group>"; };
+		FC3F4CFA2891F79F003D0073 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		FCB25F15287EA9130086F8B2 /* SampleSign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleSign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB25F18287EA9130086F8B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCB25F1A287EA9130086F8B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				FCB25F4F287EAB7C0086F8B2 /* Firebase.swift */,
+				FC3F4CFA2891F79F003D0073 /* Alert.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				FCB25F5E287EAD250086F8B2 /* User.swift in Sources */,
 				FCB25F52287EABA40086F8B2 /* SignUpViewModel.swift in Sources */,
 				FCB25F1B287EA9130086F8B2 /* SceneDelegate.swift in Sources */,
+				FC3F4CFB2891F79F003D0073 /* Alert.swift in Sources */,
 				FCB25F54287EABB50086F8B2 /* SignInViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

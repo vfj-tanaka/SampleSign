@@ -44,6 +44,22 @@ final class Firebase {
         }
     }
     
+    static func registerUser(email: String, username: String, profileImageFileName: String, profileImage: String, uid: String, completion: @escaping (_ err: Error?) -> ()) {
+        
+        let docDate: [String : Any] = ["email": email, "username": username, "uid": uid, "createdAt": Timestamp()]
+        db.collection("users").document(uid).setData(docDate) { err in
+            
+            if let err = err {
+                print("Firestoreへの保存に失敗しました。\(err)")
+                completion(err)
+                return
+            } else {
+                
+                completion(nil)
+            }
+        }
+    }
+    
     static func loginAuth(email: String, password: String, completion: @escaping (Result<Bool, Error>) -> ()) {
         
         auth.signIn(withEmail: email, password: password) { _, err in
