@@ -20,6 +20,7 @@ final class SignUpViewController: UIViewController {
     @IBOutlet private weak var registerButton: UIButton!
     
     private var viewModel: SignUpViewModel!
+    private var registerTrigger = PublishSubject<Void>()
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -30,20 +31,32 @@ final class SignUpViewController: UIViewController {
     }
     
     private func bindInputStream() {
+        self.viewModel = SignUpViewModel()
+        let input = SignUpViewModel.Input(
+                        userNameTextDriver: userNameTextField.rx.text.orEmpty.asDriver(),
+                        mailTextDriver: mailTextField.rx.text.orEmpty.asDriver(),
+                        passTextDriver: passTextField.rx.text.orEmpty.asDriver(),
+                        confirmTextDriver: confirmTextField.rx.text.orEmpty.asDriver(),
+                        registerTrigger: registerTrigger
+                    )
+        let output = self.viewModel.transform(input: input)
         
-        self.viewModel = SignUpViewModel(
-            input: (
-                userNameTextField.rx.text.orEmpty.asDriver(),
-                mailTextField.rx.text.orEmpty.asDriver(),
-                passTextField.rx.text.orEmpty.asDriver(),
-                confirmTextField.rx.text.orEmpty.asDriver()
-            )
-        )
-        
-        viewModel.validationResult.drive { validationResult in
-            
+        //Validation
+        output.validationResult.drive { validationResult in
             self.registerButton.isEnabled = validationResult.isValidated
-            
+        }
+        .disposed(by: disposeBag)
+        
+        //Register
+        output.registerResult.drive { isSuccess, messsage in
+            if isSuccess {
+                //register success
+                print("register success")
+            }
+            else{
+                //register fail
+                print("register fail")
+            }
         }.disposed(by: disposeBag)
 
     }
@@ -53,8 +66,11 @@ final class SignUpViewController: UIViewController {
     }
     
     @IBAction private func register(_ sender: Any) {
+        
+        registerTrigger.onNext(())
     }
     
     @IBAction private func gotoSignIn(_ sender: Any) {
+        
     }
 }
