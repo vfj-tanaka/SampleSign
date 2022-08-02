@@ -44,6 +44,8 @@ final class SignUpViewController: UIViewController {
         let output = self.viewModel.transform(input: input)
         output.validationResult.drive { validationResult in
             self.registerButton.isEnabled = validationResult.isValidated
+            self.statusLabel.text = validationResult.text
+            self.statusLabel.textColor = validationResult.color
         }
         .disposed(by: disposeBag)
         

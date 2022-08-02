@@ -24,6 +24,7 @@ final class SignUpViewModel: NSObject {
         let validationResult: Driver<ValidationResult>
         let registerResult: Driver<(isSuccessed: Bool, message: String)>
     }
+    
     private let disposeBag = DisposeBag()
     private var email: String?
     private var password: String?
@@ -69,7 +70,7 @@ final class SignUpViewModel: NSObject {
         }
         
         //Register process
-        let registerResult: Driver< (isSuccessed: Bool, message: String)> = input.registerTrigger.asObservable().map { _ in
+        let registerResult: Driver<(isSuccessed: Bool, message: String)> = input.registerTrigger.asObservable().map { _ in
             
             return self.doRegister(mail: self.email, password: self.password)
             
@@ -79,7 +80,7 @@ final class SignUpViewModel: NSObject {
         return Output(validationResult: validationResult, registerResult: registerResult)
     }
     
-    private func doRegister(mail: String?, password:String?) -> (isSuccessed: Bool,message: String){
+    private func doRegister(mail: String?, password: String?) -> (isSuccessed: Bool, message: String) {
         //request API or Firebase .... and return result like below
         if let mail = mail, let password = password {
             print("--email : " + mail)
