@@ -26,11 +26,10 @@ final class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bindInputStream()
-        bindOutputStream()
+        bind()
     }
     
-    private func bindInputStream() {
+    private func bind() {
         
         self.viewModel = SignUpViewModel()
         let input = SignUpViewModel.Input(
@@ -60,10 +59,6 @@ final class SignUpViewController: UIViewController {
                 print("register fail")
             }
         }.disposed(by: disposeBag)
-        
-    }
-    
-    private func bindOutputStream() {
         
     }
     
