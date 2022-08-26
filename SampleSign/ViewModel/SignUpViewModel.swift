@@ -12,9 +12,9 @@ import RxCocoa
 final class SignUpViewModel: NSObject {
     
     struct Input {
-        let userNameTextDriver: Driver<String>
         let mailTextDriver: Driver<String>
         let passTextDriver: Driver<String>
+        let userNameTextDriver: Driver<String>
         let confirmTextDriver: Driver<String>
         
         let registerTrigger: PublishSubject<Void>
@@ -28,6 +28,7 @@ final class SignUpViewModel: NSObject {
     private let disposeBag = DisposeBag()
     private var email: String?
     private var password: String?
+    private var userName: String?
     
     override init() {}
     
@@ -37,14 +38,15 @@ final class SignUpViewModel: NSObject {
         
         // 空欄がないかのバリデーション
         let blankValidation: Driver<Bool> = Driver.combineLatest(
-            input.userNameTextDriver,
             input.mailTextDriver,
             input.passTextDriver,
+            input.userNameTextDriver,
             input.confirmTextDriver
-        ) { userName, mail, pass, confirm in
+        ) { mail, pass, userName, confirm in
             self.email = mail
             self.password = pass
-            return validationModel.blankValidation(text: [userName, mail, pass, confirm])
+            self.userName = userName
+            return validationModel.blankValidation(text: [mail, pass, userName, confirm])
         }
         
         // パスワードが確認用と一致しているかのバリデーション
@@ -72,7 +74,7 @@ final class SignUpViewModel: NSObject {
         //Register process
         let registerResult: Driver<(isSuccessed: Bool, message: String)> = input.registerTrigger.asObservable().map { _ in
             
-            return self.doRegister(mail: self.email, password: self.password)
+            return self.doRegister(mail: self.email, password: self.password, userName: self.userName)
             
         }.asDriver(onErrorJustReturn: (isSuccessed: false, message: ""))
         
@@ -80,11 +82,37 @@ final class SignUpViewModel: NSObject {
         return Output(validationResult: validationResult, registerResult: registerResult)
     }
     
-    private func doRegister(mail: String?, password: String?) -> (isSuccessed: Bool, message: String) {
+    private func doRegister(mail: String?, password: String?, userName: String?) -> (isSuccessed: Bool, message: String) {
         //request API or Firebase .... and return result like below
-        if let mail = mail, let password = password {
-            print("--email : " + mail)
-            print("--pass : " + password)
+        if let mail = mail, let password = password, let userName = userName {
+            var uid = ""
+            Firebase.registerAuth(email: mail, password: password) { result in
+                
+                switch result {
+                case .success(let uidString):
+                    uid = uidString
+                    print("Authの登録に成功しました")
+                case .failure:
+                    print("Authの登録に失敗しました")
+                    return
+                }
+                
+                Firebase.registerUser(email: mail, userName: userName, uid: uid) { err in
+                    
+                    if err != nil {
+                        print("ユーザーの登録に失敗しました")
+                        return
+                    }
+                    
+                    Firebase.emailAuth(email: mail) { err in
+                        
+                        if err != nil {
+                            print("認証メールの送信に失敗しました")
+                            return
+                        }
+                    }
+                }
+            }
         }
         return (isSuccessed: true, message: "This is messsage")
     }
