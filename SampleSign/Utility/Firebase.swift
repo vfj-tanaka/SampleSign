@@ -44,9 +44,9 @@ final class Firebase {
         }
     }
     
-    static func registerUser(email: String, username: String, profileImageFileName: String, profileImage: String, uid: String, completion: @escaping (_ err: Error?) -> ()) {
+    static func registerUser(email: String, userName: String, uid: String, completion: @escaping (_ err: Error?) -> ()) {
         
-        let docDate: [String : Any] = ["email": email, "username": username, "uid": uid, "createdAt": Timestamp()]
+        let docDate: [String : Any] = ["email": email, "userName": userName, "uid": uid, "createdAt": Timestamp()]
         db.collection("users").document(uid).setData(docDate) { err in
             
             if let err = err {

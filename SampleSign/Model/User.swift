@@ -10,6 +10,6 @@ import Foundation
 struct User: Codable {
     let uid: String
     let email: String
-    let username: String
+    let userName: String
     let createdAt: Date
 }

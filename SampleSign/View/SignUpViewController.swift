@@ -33,9 +33,9 @@ final class SignUpViewController: UIViewController {
         
         self.viewModel = SignUpViewModel()
         let input = SignUpViewModel.Input(
-            userNameTextDriver: userNameTextField.rx.text.orEmpty.asDriver(),
             mailTextDriver: mailTextField.rx.text.orEmpty.asDriver(),
             passTextDriver: passTextField.rx.text.orEmpty.asDriver(),
+            userNameTextDriver: userNameTextField.rx.text.orEmpty.asDriver(),
             confirmTextDriver: confirmTextField.rx.text.orEmpty.asDriver(),
             registerTrigger: registerTrigger
         )
